@@ -1,8 +1,8 @@
 [phases.setup]
-nixPkgs = ["swig", "cmake", "build-essential"]
+nixPkgs = ["curl"]
 
 [phases.install]
-cmds = ["pip install -r requirements.txt"]
+cmds = ["pip install -r requirements_light.txt"]
 
 [start]
 cmd = "uvicorn main:app --host 0.0.0.0 --port $PORT" 
