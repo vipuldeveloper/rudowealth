@@ -47,7 +47,12 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 # Initialize OpenAI client
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    logger.warning("OPENAI_API_KEY not found in environment variables")
+    client = None
+else:
+    client = OpenAI(api_key=api_key)
 
 # Configuration
 CONFIG = {
@@ -236,6 +241,9 @@ class ChatBot:
         
     def get_embeddings(self, texts: List[str]) -> np.ndarray:
         """Generate embeddings for texts using OpenAI API"""
+        if client is None:
+            raise ValueError("OpenAI client not initialized. Please check OPENAI_API_KEY environment variable.")
+        
         try:
             response = client.embeddings.create(
                 model=CONFIG["embedding_model"],
@@ -449,6 +457,9 @@ CRITICAL INSTRUCTIONS:
 
 Provide a comprehensive answer using the exact data from the context."""}
             ]
+            
+            if client is None:
+                raise ValueError("OpenAI client not initialized. Please check OPENAI_API_KEY environment variable.")
             
             response = client.chat.completions.create(
                 model=CONFIG["llm_model"],
