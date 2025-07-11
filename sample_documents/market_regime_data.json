@@ -1,0 +1,102 @@
+{
+  "current_regime": {
+    "regime": "Growth",
+    "indicators": {
+      "gdp_growth": "6.8%",
+      "inflation": "4.2%",
+      "vix": "18.5",
+      "yield_curve": "Normal",
+      "unemployment": "3.8%",
+      "corporate_earnings_growth": "12.5%"
+    },
+    "recommended_tilts": {
+      "primary": "Momentum",
+      "secondary": "Growth",
+      "avoid": "Value"
+    },
+    "sector_preferences": {
+      "overweight": ["Technology", "Consumer Discretionary", "Financials"],
+      "underweight": ["Utilities", "Consumer Staples", "Energy"]
+    }
+  },
+  "regime_scenarios": {
+    "Recession": {
+      "regime": "Recession",
+      "indicators": {
+        "gdp_growth": "-2.1%",
+        "inflation": "2.8%",
+        "vix": "35.2",
+        "yield_curve": "Inverted",
+        "unemployment": "7.2%",
+        "corporate_earnings_growth": "-8.5%"
+      },
+      "recommended_tilts": {
+        "primary": "Quality",
+        "secondary": "Low Volatility",
+        "avoid": "High Beta"
+      },
+      "sector_preferences": {
+        "overweight": ["Consumer Staples", "Healthcare", "Utilities"],
+        "underweight": ["Financials", "Consumer Discretionary", "Industrials"]
+      }
+    },
+    "Stagflation": {
+      "regime": "Stagflation",
+      "indicators": {
+        "gdp_growth": "1.2%",
+        "inflation": "7.8%",
+        "vix": "28.5",
+        "yield_curve": "Flat",
+        "unemployment": "5.1%",
+        "corporate_earnings_growth": "2.3%"
+      },
+      "recommended_tilts": {
+        "primary": "Value",
+        "secondary": "Inflation Protection",
+        "avoid": "Growth"
+      },
+      "sector_preferences": {
+        "overweight": ["Energy", "Materials", "Real Estate"],
+        "underweight": ["Technology", "Consumer Discretionary"]
+      }
+    },
+    "Recovery": {
+      "regime": "Recovery",
+      "indicators": {
+        "gdp_growth": "4.5%",
+        "inflation": "3.1%",
+        "vix": "22.1",
+        "yield_curve": "Steepening",
+        "unemployment": "4.2%",
+        "corporate_earnings_growth": "8.7%"
+      },
+      "recommended_tilts": {
+        "primary": "Cyclical",
+        "secondary": "Small Cap",
+        "avoid": "Defensive"
+      },
+      "sector_preferences": {
+        "overweight": ["Industrials", "Materials", "Financials"],
+        "underweight": ["Consumer Staples", "Utilities"]
+      }
+    }
+  },
+  "regime_transition_rules": {
+    "Growth_to_Recession": {
+      "triggers": ["GDP < 0%", "VIX > 30", "Yield Curve Inverted"],
+      "allocation_changes": {
+        "equity_reduction": "20-30%",
+        "debt_increase": "20-30%",
+        "gold_allocation": "10%"
+      }
+    },
+    "Recession_to_Recovery": {
+      "triggers": ["GDP > 2%", "VIX < 25", "Earnings Growth > 5%"],
+      "allocation_changes": {
+        "equity_increase": "15-25%",
+        "debt_reduction": "15-25%",
+        "gold_reduction": "5%"
+      }
+    }
+  }
+} 

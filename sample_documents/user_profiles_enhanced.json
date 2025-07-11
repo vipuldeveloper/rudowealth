@@ -1,0 +1,94 @@
+{
+  "users": {
+    "RUDO001": {
+      "user_id": "RUDO001",
+      "profile": {
+        "name": "Arjun Sharma",
+        "age": 32,
+        "income_lakhs": 25,
+        "risk_tolerance": "High",
+        "investment_horizon_years": 30,
+        "current_portfolio_lakhs": 45,
+        "annual_capacity_lakhs": 8,
+        "target_corpus_crores": 100,
+        "behavioral_traits": {
+          "panic_tendency": "Low",
+          "experience": "Experienced",
+          "rebalancing_preference": "Quarterly"
+        }
+      }
+    },
+    "RUDO002": {
+      "user_id": "RUDO002",
+      "profile": {
+        "name": "Priya Patel",
+        "age": 28,
+        "income_lakhs": 18,
+        "risk_tolerance": "Moderate",
+        "investment_horizon_years": 25,
+        "current_portfolio_lakhs": 30,
+        "annual_capacity_lakhs": 6,
+        "target_corpus_crores": 50,
+        "behavioral_traits": {
+          "panic_tendency": "Medium",
+          "experience": "Intermediate",
+          "rebalancing_preference": "Semi-annual"
+        }
+      }
+    },
+    "RUDO003": {
+      "user_id": "RUDO003",
+      "profile": {
+        "name": "Rajesh Verma",
+        "age": 45,
+        "income_lakhs": 40,
+        "risk_tolerance": "Conservative",
+        "investment_horizon_years": 15,
+        "current_portfolio_lakhs": 80,
+        "annual_capacity_lakhs": 12,
+        "target_corpus_crores": 75,
+        "behavioral_traits": {
+          "panic_tendency": "High",
+          "experience": "Experienced",
+          "rebalancing_preference": "Annual"
+        }
+      }
+    },
+    "RUDO004": {
+      "user_id": "RUDO004",
+      "profile": {
+        "name": "Neha Singh",
+        "age": 25,
+        "income_lakhs": 12,
+        "risk_tolerance": "Very High",
+        "investment_horizon_years": 35,
+        "current_portfolio_lakhs": 15,
+        "annual_capacity_lakhs": 4,
+        "target_corpus_crores": 200,
+        "behavioral_traits": {
+          "panic_tendency": "Very Low",
+          "experience": "Beginner",
+          "rebalancing_preference": "Monthly"
+        }
+      }
+    },
+    "RUDO005": {
+      "user_id": "RUDO005",
+      "profile": {
+        "name": "Amit Kumar",
+        "age": 38,
+        "income_lakhs": 35,
+        "risk_tolerance": "Moderate",
+        "investment_horizon_years": 20,
+        "current_portfolio_lakhs": 60,
+        "annual_capacity_lakhs": 10,
+        "target_corpus_crores": 80,
+        "behavioral_traits": {
+          "panic_tendency": "Low",
+          "experience": "Intermediate",
+          "rebalancing_preference": "Quarterly"
+        }
+      }
+    }
+  }
+} 

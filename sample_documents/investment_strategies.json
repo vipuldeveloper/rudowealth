@@ -1,0 +1,111 @@
+{
+  "strategies": {
+    "Core_Satellite_Growth": {
+      "strategy_type": "Core_Satellite",
+      "market_regime": "Growth",
+      "allocation_rules": {
+        "core_percentage": "60-80%",
+        "satellite_percentage": "20-40%",
+        "factor_tilt": "Momentum + Growth",
+        "recommended_funds": ["Large Cap Index", "Mid Cap Growth", "Momentum ETF"]
+      },
+      "risk_adjustments": {
+        "high_risk": {"equity": "80-90%", "debt": "10-20%"},
+        "moderate_risk": {"equity": "60-70%", "debt": "30-40%"},
+        "conservative_risk": {"equity": "40-50%", "debt": "50-60%"}
+      }
+    },
+    "Core_Satellite_Recession": {
+      "strategy_type": "Core_Satellite",
+      "market_regime": "Recession",
+      "allocation_rules": {
+        "core_percentage": "70-90%",
+        "satellite_percentage": "10-30%",
+        "factor_tilt": "Quality + Low Volatility",
+        "recommended_funds": ["Quality Index", "Low Volatility ETF", "Government Bonds"]
+      },
+      "risk_adjustments": {
+        "high_risk": {"equity": "50-60%", "debt": "30-40%", "gold": "10%"},
+        "moderate_risk": {"equity": "30-40%", "debt": "50-60%", "gold": "10%"},
+        "conservative_risk": {"equity": "20-30%", "debt": "60-70%", "gold": "10%"}
+      }
+    },
+    "Core_Satellite_Stagflation": {
+      "strategy_type": "Core_Satellite",
+      "market_regime": "Stagflation",
+      "allocation_rules": {
+        "core_percentage": "50-70%",
+        "satellite_percentage": "30-50%",
+        "factor_tilt": "Value + Inflation Protection",
+        "recommended_funds": ["Value Index", "TIPS", "Commodity ETF"]
+      },
+      "risk_adjustments": {
+        "high_risk": {"equity": "40-50%", "debt": "30-40%", "commodities": "20%"},
+        "moderate_risk": {"equity": "30-40%", "debt": "40-50%", "commodities": "20%"},
+        "conservative_risk": {"equity": "20-30%", "debt": "50-60%", "commodities": "20%"}
+      }
+    },
+    "Bonus_Investment_Strategy": {
+      "strategy_type": "Lump_Sum",
+      "market_regime": "All",
+      "allocation_rules": {
+        "high_risk": {
+          "equity": "70%",
+          "debt": "30%",
+          "breakdown": {
+            "large_cap": "40%",
+            "mid_cap": "20%",
+            "small_cap": "10%",
+            "government_bonds": "20%",
+            "corporate_bonds": "10%"
+          }
+        },
+        "moderate_risk": {
+          "equity": "50%",
+          "debt": "50%",
+          "breakdown": {
+            "large_cap": "30%",
+            "mid_cap": "15%",
+            "small_cap": "5%",
+            "government_bonds": "35%",
+            "corporate_bonds": "15%"
+          }
+        },
+        "conservative_risk": {
+          "equity": "30%",
+          "debt": "70%",
+          "breakdown": {
+            "large_cap": "20%",
+            "mid_cap": "10%",
+            "government_bonds": "50%",
+            "corporate_bonds": "20%"
+          }
+        }
+      }
+    },
+    "Panic_Prevention_Strategy": {
+      "strategy_type": "Behavioral_Intervention",
+      "market_regime": "All",
+      "intervention_rules": {
+        "high_panic_tendency": {
+          "immediate_action": "Partial exit (25% max)",
+          "alternative": "Systematic Transfer Plan (STP)",
+          "timeframe": "6-12 months",
+          "reassurance": "Historical recovery data"
+        },
+        "medium_panic_tendency": {
+          "immediate_action": "Rebalance to defensive",
+          "alternative": "Value averaging",
+          "timeframe": "3-6 months",
+          "reassurance": "Diversification benefits"
+        },
+        "low_panic_tendency": {
+          "immediate_action": "Hold and rebalance",
+          "alternative": "Opportunity buying",
+          "timeframe": "1-3 months",
+          "reassurance": "Long-term perspective"
+        }
+      }
+    }
+  }
+} 
