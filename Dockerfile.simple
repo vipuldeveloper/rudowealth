@@ -1,24 +1,22 @@
-# Use Python 3.10-slim for smaller base image
-FROM python:3.10-slim
+# Use Python 3.10 with a different base
+FROM python:3.10-bullseye
 
 # Set working directory
 WORKDIR /app
 
-# Install build dependencies for FAISS
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
     curl \
     && rm -rf /var/lib/apt/lists/* \
-    && apt-get clean \
-    && apt-get autoremove -y
+    && apt-get clean
 
 # Copy requirements first for better caching
 COPY requirements.txt .
 
-# Install Python packages with optimizations
-RUN pip install --no-cache-dir -r requirements.txt \
-    && pip cache purge
+# Install Python packages
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy only necessary application files
 COPY main.py .

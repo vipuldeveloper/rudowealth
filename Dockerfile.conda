@@ -1,0 +1,49 @@
+# Use conda base image which often has better pre-built packages
+FROM continuumio/miniconda3:latest
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Create conda environment
+RUN conda create -n rudowealth python=3.10 -y
+SHELL ["conda", "run", "-n", "rudowealth", "/bin/bash", "-c"]
+
+# Install conda packages (often have better pre-built binaries)
+RUN conda install -c conda-forge \
+    faiss-cpu=1.7.2 \
+    numpy=1.24.3 \
+    pandas=2.0.3 \
+    -y
+
+# Copy requirements for pip packages
+COPY requirements_pip_only.txt requirements.txt
+
+# Install pip packages
+RUN pip install --no-cache-dir -r requirements.txt \
+    && pip cache purge
+
+# Copy application files
+COPY main.py .
+COPY templates/ templates/
+COPY static/ static/
+COPY sample_documents/ sample_documents/
+
+# Create vector store directory
+RUN mkdir -p vector_store
+
+# Expose port
+EXPOSE 8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1
+
+# Start the application
+SHELL ["conda", "run", "-n", "rudowealth", "/bin/bash", "-c"]
+CMD ["conda", "run", "-n", "rudowealth", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"] 
