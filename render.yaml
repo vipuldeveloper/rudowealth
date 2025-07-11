@@ -2,9 +2,39 @@ services:
   - type: web
     name: rudowealth
     env: python
-    buildCommand: pip install -r requirements.txt
+    plan: free
+    buildCommand: pip install -r requirements_render.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
-        value: 3.11.0
-    healthCheckPath: /health 
+        value: 3.10.0
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: APP_NAME
+        value: rudowealth
+      - key: APP_VERSION
+        value: 1.0.0
+      - key: DEBUG
+        value: false
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 8000
+      - key: VECTOR_STORE_PATH
+        value: ./vector_store
+      - key: EMBEDDING_MODEL
+        value: text-embedding-3-small
+      - key: LLM_MODEL
+        value: gpt-4o-mini
+      - key: CHUNK_SIZE
+        value: 1000
+      - key: CHUNK_OVERLAP
+        value: 200
+      - key: TOP_K
+        value: 8
+      - key: TEMPERATURE
+        value: 0.3
+      - key: MAX_TOKENS
+        value: 2000
+    healthCheckPath: /health
+    autoDeploy: true 
